@@ -3,7 +3,12 @@
 ### Assignments
 
 ```
-Task:
+Task: grid of cell culture medium has (L) for livable, and (.) for unlivable.
+
+Rules:
+    - will grow if a livable area is empty and there are no adjacent cell cultures 
+    - will die if a livable area//culture is surrounded by four other adjacent cultures
+    - everything else stays the same
 ```
 
 ### Install
@@ -19,11 +24,22 @@ or from your own virtual environment with Python 3.8 using
 `pip install -r requirements.txt`
 
 ### Usage
+```
+
+```
 
 ### Testing
+```
+```
 
 ### Assumptions Made
+```
+```
 
 ### Future Considerations
+```
+```
 
 ### Test plan
+```
+```
