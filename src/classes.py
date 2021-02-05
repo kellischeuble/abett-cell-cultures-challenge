@@ -27,8 +27,15 @@ class Grid:
             neighbors = 0
             # Make sure this is looking at edge cases (literal edges - should they be counted as unlivable??)
             # Make this more reusable and not so repetitive 
-            if self.grid[[i+1][j]].status == "occupied":
+            if self.grid[[i+1][j]].status == "occupied" and i < len(self.grid) - 1:
                 neighbors += 1
+            if self.grid[[i-1][j]].status == "occupied" and i > 0:
+                neighbors += 1
+            if self.grid[[i][j+1]].status == "occupied" and i < len(self.grid[0]) -1:
+                neighbors += 1
+            if self.grid[[i][j-1]].status == "occupied" and i > 0:
+                neighbors += 1
+
 
 
         def determine_if_livable(cell, i, j):
