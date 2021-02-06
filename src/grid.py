@@ -55,38 +55,9 @@ class Grid:
                     current_row.append(["."])
             next_hour_grid.append(current_row)
 
-    
-class Cell:
-
-    def __init__(self, character):
-
-        CHARACTER_MAP = {"X": "occupied", 
-                         "L":"livable", 
-                         ".": "unlivable"}
-
-        self.character = character
-        self.status = CHARACTER_MAP[self.character]
-
     def __repr__(self):
-        return f"{self.character}"
-        
-
-class Experiment:
-
-    def __init__(self, initial_grid):
-        self.initial_grid = initial_grid
-        self.is_stable = False
-        self.hour = 0
-
-    def run_experiment(self):
-
-        previous_grid = self.initial_grid
-        current_grid = list()
-
-        while not self.is_stable:
-            self.hour += 1
-
-
+            [[cell.character] for cell in row] for row in self.grid]
+    
 
 g = Grid()
 g.initialize_grid("/Users/kellischeuble/Desktop/interviews/abett_technical_challenge/abett-cell-cultures-challenge/data/cell-cultures.txt")
