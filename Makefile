@@ -1,2 +1,2 @@
 test: 
-	@pytest -vvs ./tests/test_classes.py
+	@pytest -vvs tests/test_grid.py
