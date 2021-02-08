@@ -24,13 +24,15 @@ or from your own virtual environment with Python 3.8 using
 `pip install -r requirements.txt`
 
 ### Usage
-```
 
-```
+In main directory (same level as README and Pipfile):
+
+`export PYTHONPATH=./`
+`make run_experiment`
 
 ### Testing
-```
-```
+
+`make test`
 
 ### Assumptions Made
 ```
