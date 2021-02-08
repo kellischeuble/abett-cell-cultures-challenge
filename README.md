@@ -15,9 +15,9 @@ Rules:
 
 create virtual environment with pipenv
 
-`pip install pipenv`
-`pipenv install -r requirements.txt`
-`pipenv shell`
+`pip install pipenv`  
+`pipenv install -r requirements.txt`  
+`pipenv shell`  
 
 or from your own virtual environment with Python 3.8 using
 
@@ -27,7 +27,7 @@ or from your own virtual environment with Python 3.8 using
 
 In main directory (same level as README and Pipfile):
 
-`export PYTHONPATH=./`
+`export PYTHONPATH=./`  
 `make run_experiment`
 
 ### Testing
