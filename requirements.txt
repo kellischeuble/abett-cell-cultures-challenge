@@ -1,1 +1,2 @@
 pytest
+black==18.5b0
