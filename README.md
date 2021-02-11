@@ -34,14 +34,9 @@ In main directory (same level as README and Pipfile):
 
 `make test`
 
-### Assumptions Made
-```
-```
+### TODOs:
 
-### Future Considerations
 ```
-```
-
-### Test plan
-```
+- Expand on testing
+- Add error handeling 
 ```

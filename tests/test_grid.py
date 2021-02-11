@@ -32,7 +32,6 @@ def test_count_occupied_cells():
 
 
 def test_sprout_culture():
-
     grid = create_grid("tests/data/cell_culture.txt")
     grid.sprout_culture()
     sprouted_grid = grid.get_2d_matrix()
@@ -40,21 +39,20 @@ def test_sprout_culture():
     assert sprouted_grid == sprouted
 
 
-def test_apply_rules():
-
+def test_grow_one_hour():
     grid = create_grid("tests/data/cell_culture.txt")
     grid.sprout_culture()
 
-    grid.apply_rules()
+    grid.grow_one_hour()
     hour_two_grid = grid.get_2d_matrix()
 
-    grid.apply_rules()
+    grid.grow_one_hour()
     hour_three_grid = grid.get_2d_matrix()
 
-    grid.apply_rules()
+    grid.grow_one_hour()
     hour_four_grid = grid.get_2d_matrix()
 
-    grid.apply_rules()
+    grid.grow_one_hour()
     hour_five_grid = grid.get_2d_matrix()
 
     assert hour_two_grid == hour_two
