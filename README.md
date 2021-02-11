@@ -2,6 +2,7 @@
 
 ### Assignments
 
+[task instructions](https://github.com/kellischeuble/abett-cell-cultures-challenge/blob/main/CodingChallenge1.pdf)  
 ```
 Task: grid of cell culture medium has (L) for livable, and (.) for unlivable.
 
