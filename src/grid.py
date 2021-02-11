@@ -23,6 +23,8 @@ class Grid:
 
     def sprout_culture(self):
         # TODO: CHANGE THIS TO DO IN PLACE
+        # I have tried iterating over with i & j
+        # and changing value directly in self.grid
         next_hour_grid = list()
 
         for row in self.grid:
@@ -41,45 +43,35 @@ class Grid:
         Returns another grid for the next hour's growth
         """
 
-        def count_adj_cultures(i, j):
+        def count_adj_cultures(x, y):
 
             adj_cultures = 0
 
-            # TODO: Make this more reusable and not so repetitive
+            if 0 < x < len(self.grid) - 1:
+                xi = (0, -1, 1)
+            elif x > 0:
+                xi = (0, -1)
+            else:
+                xi = (0, 1)
 
-            top = i == 0
-            left_edge = j == 0
-            right_edge = j == (len(self.grid[0]) - 1)
-            bottom = i == (len(self.grid) - 1)
+            if 0 < y < len(self.grid[0]) - 1:
+                yi = (0, -1, 1)
+            elif y > 0:
+                yi = (0, -1)
+            else:
+                yi = (0, 1)
 
-            if not top:
-                if self.grid[i - 1][j] == "#":
-                    adj_cultures += 1
-                if not right_edge:
-                    if self.grid[i - 1][j + 1] == "#":
+            for a in xi:
+                for b in yi:
+                    if a == b == 0:
+                        continue
+                    if self.grid[x + a][y + b] == "#":
                         adj_cultures += 1
-                if not left_edge:
-                    if self.grid[i - 1][j - 1] == "#":
-                        adj_cultures += 1
-            if not bottom:
-                if self.grid[i + 1][j] == "#":
-                    adj_cultures += 1
-                if not right_edge:
-                    if self.grid[i + 1][j + 1] == "#":
-                        adj_cultures += 1
-                if not left_edge:
-                    if self.grid[i + 1][j - 1] == "#":
-                        adj_cultures += 1
-            if not left_edge:
-                if self.grid[i][j - 1] == "#":
-                    adj_cultures += 1
-            if not right_edge:
-                if self.grid[i][j + 1] == "#":
-                    adj_cultures += 1
 
             return adj_cultures
 
-        def determine_new_char(cell, i, j):
+        def determine_new_char(cell: str, i: int, j: int) -> str:
+
             if cell == "#" and count_adj_cultures(i, j) >= 4:
                 return "L"
             if cell == "L" and count_adj_cultures(i, j) == 0:
@@ -97,6 +89,10 @@ class Grid:
         self.grid = next_hour_grid
 
     def get_2d_matrix(self):
+        """
+        Returns:
+            List: List of all of the rows in the table
+        """
         return [[cell for cell in row] for row in self.grid]
 
     def __repr__(self):
@@ -119,8 +115,7 @@ class Experiment:
             self.hour += 1
             self.previous_grid = self.grid.get_2d_matrix()
             self.grid.apply_rules()
-            if self.grid.get_2d_matrix() == self.previous_grid:
-                self.is_stable = True
+            self.is_stable = self.grid.get_2d_matrix() == self.previous_grid
 
     def answer_experiment_questions(self):
         print("Hours it takes the culture to stabilize:", self.hour)
