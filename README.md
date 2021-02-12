@@ -39,5 +39,5 @@ In main directory (same level as README and Pipfile):
 
 ```
 - Expand on testing
-- Add error handeling 
+- Add error handling 
 ```
